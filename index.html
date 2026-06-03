@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danish Noushad | Portfolio</title>
+
+<style>
+:root{
+--bg:#0b1120;
+--card:rgba(255,255,255,.08);
+--text:#fff;
+--accent:#00e5ff;
+--accent2:#7c3aed;
+}
+.light{
+--bg:#f5f7fb;
+--card:rgba(255,255,255,.8);
+--text:#111;
+--accent:#0891b2;
+--accent2:#7c3aed;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;transition:.4s}
+canvas{position:fixed;inset:0;z-index:-2}
+.bg{
+position:fixed;inset:0;z-index:-1;
+background:linear-gradient(-45deg,#00e5ff22,#7c3aed22,#22c55e22,#00e5ff22);
+background-size:400% 400%;
+animation:grad 12s ease infinite;
+}
+@keyframes grad{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+nav{
+position:fixed;top:15px;left:50%;
+transform:translateX(-50%);
+width:90%;max-width:1100px;
+display:flex;justify-content:space-between;
+padding:15px 25px;
+background:var(--card);
+backdrop-filter:blur(15px);
+border-radius:20px;
+z-index:1000;
+}
+nav a{color:var(--text);text-decoration:none;margin:0 10px}
+.toggle{
+cursor:pointer;border:none;padding:10px 15px;
+border-radius:10px;background:linear-gradient(45deg,var(--accent),var(--accent2));
+color:#fff
+}
+section{padding:100px 10%}
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+.hero h1{
+font-size:4rem;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+.hero h2{margin:15px 0;color:#9ca3af}
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+border-radius:30px;
+text-decoration:none;
+background:linear-gradient(45deg,var(--accent),var(--accent2));
+color:#fff;
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+.card{
+background:var(--card);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:20px;
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-8px);
+}
+.title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:40px;
+}
+.timeline{
+border-left:3px solid var(--accent);
+padding-left:25px;
+max-width:700px;
+margin:auto;
+}
+.timeline div{margin-bottom:30px}
+.skill{
+margin:15px 0;
+}
+.bar{
+height:10px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+}
+.fill{
+height:100%;
+background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+.reveal{
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+}
+.reveal.active{
+opacity:1;
+transform:none;
+}
+footer{
+text-align:center;
+padding:30px;
+}
+@media(max-width:768px){
+.hero h1{font-size:2.5rem}
+nav{font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+<div class="bg"></div>
+
+<nav>
+<b>Danish Noushad</b>
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#project">Project</a>
+<button class="toggle" onclick="document.body.classList.toggle('light')">🌙/☀️</button>
+</div>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Danish Noushad</h1>
+<h2 id="typing"></h2>
+<p>Electrical Engineering Student • NSS Volunteer • EV Enthusiast</p>
+<a href="#project" class="btn">View Project</a>
+</div>
+</section>
+
+<section id="about" class="reveal">
+<h2 class="title">About Me</h2>
+<div class="grid">
+<div class="card">
+<h3>Education</h3>
+<p>Diploma Engineering Student passionate about technology and innovation.</p>
+</div>
+<div class="card">
+<h3>Languages</h3>
+<p>Malayalam<br>English</p>
+</div>
+<div class="card">
+<h3>Interests</h3>
+<p>Swimming, Movies, EV Technology, Learning New Skills</p>
+</div>
+</div>
+</section>
+
+<section id="skills" class="reveal">
+<h2 class="title">Skills</h2>
+<div class="card">
+<div class="skill">Electrical Fundamentals
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+<div class="skill">EV Technology
+<div class="bar"><div class="fill" style="width:80%"></div></div>
+</div>
+<div class="skill">Solar Energy
+<div class="bar"><div class="fill" style="width:75%"></div></div>
+</div>
+</div>
+</section>
+
+<section class="reveal">
+<h2 class="title">Timeline</h2>
+<div class="timeline">
+<div>
+<h3>NSS Volunteer</h3>
+<p>Certificate holder and active participant.</p>
+</div>
+<div>
+<h3>Internship</h3>
+<p>Gaining practical industry experience.</p>
+</div>
+<div>
+<h3>Future Goal</h3>
+<p>Build innovative EV and renewable energy solutions.</p>
+</div>
+</div>
+</section>
+
+<section id="project" class="reveal">
+<h2 class="title">Featured Project</h2>
+<div class="card">
+<h3>EV Charging Station</h3>
+<p>Developing an EV charging station concept integrating renewable energy and sustainable transportation technologies.</p>
+</div>
+</section>
+
+<footer>
+© 2026 Danish Noushad Portfolio
+</footer>
+
+<script>
+const words=[
+"Electrical Engineering Student",
+"NSS Volunteer",
+"EV Technology Enthusiast",
+"Future Innovator"
+];
+
+let i=0,j=0,del=false;
+function type(){
+let w=words[i];
+document.getElementById("typing").textContent=w.substring(0,j);
+
+if(!del){j++;if(j>w.length){del=true;setTimeout(type,1000);return;}}
+else{j--;if(j===0){del=false;i=(i+1)%words.length;}}
+
+setTimeout(type,del?50:100);
+}
+type();
+
+const reveal=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+reveal.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100)
+el.classList.add('active');
+});
+});
+
+const c=document.getElementById('particles');
+const ctx=c.getContext('2d');
+c.width=innerWidth;
+c.height=innerHeight;
+
+const p=[...Array(80)].map(()=>({
+x:Math.random()*c.width,
+y:Math.random()*c.height,
+r:Math.random()*2+1,
+dx:(Math.random()-.5),
+dy:(Math.random()-.5)
+}));
+
+function draw(){
+ctx.clearRect(0,0,c.width,c.height);
+p.forEach(a=>{
+ctx.beginPath();
+ctx.arc(a.x,a.y,a.r,0,6.28);
+ctx.fillStyle='rgba(255,255,255,.7)';
+ctx.fill();
+a.x+=a.dx;a.y+=a.dy;
+if(a.x<0||a.x>c.width)a.dx*=-1;
+if(a.y<0||a.y>c.height)a.dy*=-1;
+});
+requestAnimationFrame(draw);
+}
+draw();
+
+onresize=()=>{
+c.width=innerWidth;
+c.height=innerHeight;
+};
+</script>
+
+</body>
+</html>
